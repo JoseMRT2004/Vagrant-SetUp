@@ -38,11 +38,12 @@ usando tecnologías nativas de Linux:
 • vagrant-libvirt: Plugin que permite a Vagrant usar Libvirt como proveedor.
 
 VENTAJAS SOBRE VIRTUALBOX:
-✓ Mejor rendimiento (acceso directo al hardware)
-✓ Sin problemas con Secure Boot
-✓ Integración nativa con Linux
-✓ Más estable en kernels modernos
-✓ Menor sobrecarga de recursos
+
+  ✓ Mejor rendimiento (acceso directo al hardware)
+  ✓ Sin problemas con Secure Boot
+  ✓ Integración nativa con Linux
+  ✓ Más estable en kernels modernos
+  ✓ Menor sobrecarga de recursos
 
 ===============================================================================
 2. REQUISITOS DEL SISTEMA
