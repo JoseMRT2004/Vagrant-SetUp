@@ -39,11 +39,11 @@ usando tecnologías nativas de Linux:
 
 VENTAJAS SOBRE VIRTUALBOX:
 
-  ✓ Mejor rendimiento (acceso directo al hardware)
-  ✓ Sin problemas con Secure Boot
-  ✓ Integración nativa con Linux
-  ✓ Más estable en kernels modernos
-  ✓ Menor sobrecarga de recursos
+ -  Mejor rendimiento (acceso directo al hardware)
+ -  Sin problemas con Secure Boot
+ -  Integración nativa con Linux
+ -  Más estable en kernels modernos
+ -  Menor sobrecarga de recursos
 
 ===============================================================================
 2. REQUISITOS DEL SISTEMA
@@ -84,11 +84,11 @@ PASO A PASO:
    $ ./setupVagrantVM.sh
 
 5. El script realizará:
-   ✓ Limpieza de instalaciones anteriores conflictivas
-   ✓ Instalación de KVM, Libvirt y dependencias
-   ✓ Configuración de permisos de usuario
-   ✓ Instalación de Vagrant desde repositorio oficial
-   ✓ Instalación del plugin vagrant-libvirt
+  -  Limpieza de instalaciones anteriores conflictivas
+  -  Instalación de KVM, Libvirt y dependencias
+  -  Configuración de permisos de usuario
+  -  Instalación de Vagrant desde repositorio oficial
+  -  Instalación del plugin vagrant-libvirt
 
 6. POST-INSTALACIÓN OBLIGATORIA:
    Debes CERRAR SESIÓN completamente y volver a entrar.
