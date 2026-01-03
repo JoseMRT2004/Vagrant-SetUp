@@ -65,13 +65,15 @@ echo "==================================================================="
 echo "   FASE 1: LIMPIEZA DEL SISTEMA"
 echo "==================================================================="
 
-# Remover VirtualBox si existe
+    
+# Remover VirtualBox si existe -- Puede sustituir esta parte por la eliminación de otros hipervisores si es necesario.
 if dpkg -l | grep -q virtualbox; then
     print_info "Removiendo VirtualBox..."
     sudo apt remove --purge virtualbox-* virtualbox-dkms -y 2>/dev/null
     sudo rm -f /etc/apt/sources.list.d/virtualbox.list 2>/dev/null
     print_success "VirtualBox removido"
 fi
+
 
 # Remover Vagrant de repositorios del sistema
 if dpkg -l | grep -q vagrant; then
@@ -97,11 +99,11 @@ sudo apt update
 
 print_info "Instalando KVM, Libvirt y herramientas..."
 sudo apt install -y \
-    qemu-kvm \
+    qemu-kvm \ 
     libvirt-daemon-system \
     libvirt-clients \
     bridge-utils \
-    virt-manager \
+    virt-manager \  # Para gestión gráfica opcional
     cpu-checker
 
 if [ $? -eq 0 ]; then
@@ -123,9 +125,11 @@ print_info "Agregando usuario a grupos de virtualización..."
 sudo adduser $USER libvirt
 sudo adduser $USER kvm
 
+
 print_success "Usuario agregado a grupos libvirt y kvm"
 print_warning "IMPORTANTE: Debes cerrar sesión y volver a entrar después de este script"
 print_info "Los permisos no funcionarán hasta que reinicies la sesión"
+
 
 # =============================================================================
 # 6. INSTALACIÓN DE VAGRANT DESDE HASHICORP
@@ -197,6 +201,24 @@ else
     print_warning "Servicio libvirt inactivo, iniciando..."
     sudo systemctl start libvirtd
     sudo systemctl enable libvirtd
+fi
+
+
+
+echo "==================================================================="
+echo "   FASE 7: VERIFICACIÓN FINAL"
+echo "==================================================================="
+
+print_info "Instalación completada. Se recomienda reiniciar la sesión."
+print_warning "IMPORTANTE: Debes cerrar sesión y volver a entrar para activar los permisos"
+
+read -p "¿Deseas reiniciar ahora? (s/n): " respuesta
+
+if [[ "$respuesta" =~ ^[Ss]$ ]]; then
+    print_info "Reiniciando el sistema..."
+    sudo reboot now
+else
+    print_warning "Reinicio pospuesto. Recuerda reiniciar manualmente después."
 fi
 
 # =============================================================================
