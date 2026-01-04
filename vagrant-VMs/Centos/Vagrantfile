@@ -1,6 +1,29 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
+  # VM Configuration
   config.vm.box = "centos/7"
   config.vm.box_version = "2004.01"
-  config.vm.hostname = "centos-vm"
+
+  # Network Configuration
+  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+  # config.vm.network "private_network", ip: "192.168.33.10"
+
+  # Shared Folders
+  # config.vm.synced_folder "../data", "/vagrant_data"
+
+  # Provider Configuration
+  config.vm.provider "libvirt" do |libvirt|
+    libvirt.memory = 1024
+    libvirt.cpus = 2
+  end
+
+  # Provisioning
+  config.vm.provision "shell", inline: <<-SHELL
+    yum update -y
+  #   yum install -y httpd
+  #   systemctl start httpd
+  #   systemctl enable httpd
+  SHELL
 end
