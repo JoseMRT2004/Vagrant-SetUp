@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
   # config.vm.network "private_network", ip: "192.168.33.10"
 
   # Shared Folders
-  # config.vm.synced_folder "../data", "/vagrant_data"
+  config.vm.synced_folder "../data", "/vagrant_data"
 
   # Provider Configuration
   config.vm.provider "libvirt" do |libvirt|
@@ -22,7 +22,6 @@ Vagrant.configure("2") do |config|
   # Provisioning
   config.vm.provision "shell", inline: <<-SHELL
     yum update -y
-    # Execute the OS-DeepInf.sh script
-    bash /path/to/OS-DeepInf.sh
+    bash ./OSDeepInf.sh 
   SHELL
 end
