@@ -13,7 +13,9 @@ Vagrant.configure("2") do |config|
   # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
 
   # Synced folders
+
   # config.vm.synced_folder "../data", "/vagrant_data"
+  config.vm.synced_folder "/home/mrtaveras/pjt/project-2025/DevOps/Vagrant/ScriptsFolder", "/vagrantScriptsFolder"
 
   # Provider configuration
   config.vm.provider "libvirt" do |provider|
