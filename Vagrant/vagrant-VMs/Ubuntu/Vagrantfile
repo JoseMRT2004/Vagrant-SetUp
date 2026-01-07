@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   # Synced folders
 
   # config.vm.synced_folder "../data", "/vagrant_data"
-  config.vm.synced_folder "/home/mrtaveras/pjt/project-2025/DevOps/Vagrant/ScriptsFolder", "/vagrantScriptsFolder"
+  config.vm.synced_folder "/home/mrtaveras/pjt/project-2025/DevOps/Vagrant/ScriptsFolder", "/vagrantScriptsFolder", type: "rsync" , rsync__auto: true
 
   # Provider configuration
   config.vm.provider "libvirt" do |provider|
@@ -27,6 +27,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
+    
 #     apt-get install -y apache2
   SHELL
 end

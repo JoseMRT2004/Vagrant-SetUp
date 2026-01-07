@@ -13,8 +13,7 @@ Vagrant.configure("2") do |config|
   # Shared Folders --> only sync changes from host to guest
   # if you want bidirectional sync, use virtiofs type instead of rsync, but requires libvirt 6.0+ and | memorybacking :shared | and the OS supports it
 
-  config.vm.synced_folder "/home/mrtaveras/pjt/project-2025/DevOps/Vagrant/ScriptsFolder", "/vagrantScriptsFolder"
-
+  config.vm.synced_folder "/home/mrtaveras/pjt/project-2025/DevOps/Vagrant/ScriptsFolder", "/vagrantScriptsFolder", type: "rsync" , rsync__auto: true
   # Provider Configuration
   config.vm.provider "libvirt" do |libvirt|
     libvirt.memory = 1024
