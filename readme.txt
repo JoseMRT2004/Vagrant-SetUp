@@ -217,5 +217,3 @@ Tu entorno de virtualización está listo para usar. Recuerda:
 1. Cerrar sesión y volver a entrar
 2. Usar 'vagrant init' para crear proyectos
 3. Usar 'vagrant ssh' para acceder a las máquinas
-
-Para soporte adicional, consulta la documentación oficial o foros de la comunidad.
